@@ -1,0 +1,79 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --font-display: "Syne", sans-serif;
+  --font-sans: "Plus Jakarta Sans", sans-serif;
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-premium: var(--premium);
+  --color-premium-foreground: var(--premium-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-ring-offset-background: var(--background);
+}
+
+:root {
+  --radius: 0.9rem;
+  --background: oklch(0.975 0.012 95);
+  --foreground: oklch(0.2 0.02 160);
+  --card: oklch(0.995 0.005 95);
+  --card-foreground: oklch(0.2 0.02 160);
+  --popover: oklch(0.995 0.005 95);
+  --popover-foreground: oklch(0.2 0.02 160);
+  --primary: oklch(0.42 0.11 160);
+  --primary-foreground: oklch(0.98 0.01 95);
+  --secondary: oklch(0.93 0.03 120);
+  --secondary-foreground: oklch(0.25 0.04 160);
+  --muted: oklch(0.94 0.015 95);
+  --muted-foreground: oklch(0.48 0.02 160);
+  --accent: oklch(0.88 0.17 125);
+  --accent-foreground: oklch(0.2 0.04 160);
+  --premium: oklch(0.78 0.16 70);
+  --premium-foreground: oklch(0.2 0.03 60);
+  --destructive: oklch(0.577 0.245 27.325);
+  --destructive-foreground: oklch(0.98 0 0);
+  --border: oklch(0.88 0.02 110);
+  --input: oklch(0.88 0.02 110);
+  --ring: oklch(0.42 0.11 160);
+  --shadow-card: 0 20px 50px -25px color-mix(in oklab, var(--primary) 45%, transparent);
+}
+
+@layer base {
+  * { border-color: var(--color-border); }
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+  }
+  h1, h2, h3 { font-family: var(--font-display); letter-spacing: -0.02em; }
+}
+
+@utility shadow-card { box-shadow: var(--shadow-card); }
+@utility grid-dots {
+  background-image: radial-gradient(color-mix(in oklab, var(--primary) 18%, transparent) 1px, transparent 1px);
+  background-size: 18px 18px;
+}
